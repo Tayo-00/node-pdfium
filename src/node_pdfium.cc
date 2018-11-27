@@ -1,4 +1,5 @@
 #include <node.h>
+#include <v8.h>
 
 #include "node_pdfium.hh"
 
@@ -516,7 +517,7 @@ void RenderAsyncAfter(uv_work_t *r) {
   MY_NODE_MODULE_HANDLESCOPE;
   RenderAsyncReq* req = reinterpret_cast<RenderAsyncReq*>(r->data);
 
-  TryCatch try_catch = new TryCatch();
+  TryCatch trycatch(isolate);
 
   v8::Local<v8::Function> callback = v8::Local<v8::Function>::New(MY_NODE_MODULE_ISOLATE_PRE req->callback);
   if(!req->error.empty()) {
@@ -539,8 +540,8 @@ void RenderAsyncAfter(uv_work_t *r) {
   req->callback.Reset();
   delete req;
 
-  if (try_catch.HasCaught()) {
-    node::FatalException(try_catch);
+  if (trycatch.HasCaught()) {
+    node::FatalException(trycatch);
   }
 }
 
@@ -565,11 +566,11 @@ MY_NODE_MODULE_CALLBACK(render)
   REQUIRE_ARGUMENT_OBJECT(iArgs, 0, options);
   OPTIONAL_ARGUMENT_FUNCTION(iArgs, 1, callback);
 
-  if(!HasOwnProperty(options, V8_STRING_NEW_UTF8("data"))) {
+  if(!options::HasOwnProperty(V8_STRING_NEW_UTF8("data"))) {
     RETURN_EXCEPTION_STR_CB("data field is missing", callback);
   }
 
-  if(!HasOwnProperty(options, V8_STRING_NEW_UTF8("outputFormat"))) {
+  if(!options::HasOwnProperty(V8_STRING_NEW_UTF8("outputFormat"))) {
     RETURN_EXCEPTION_STR_CB("outputFormat field is missing", callback);
   }
 
@@ -590,7 +591,7 @@ MY_NODE_MODULE_CALLBACK(render)
 
   req->outputFormat.assign(*outputFormatObject, outputFormatObject.length());
 
-  if(HasOwnProperty(options, V8_STRING_NEW_UTF8("scaleFactor"))) {
+  if(options::HasOwnProperty(options, V8_STRING_NEW_UTF8("scaleFactor"))) {
     v8::Local<v8::Value> scaleFactor = options->Get(V8_STRING_NEW_UTF8("scaleFactor")).As<v8::Value>();
     if(!scaleFactor->IsNumber()) {
       RETURN_EXCEPTION_STR_CB("scaleFactor should be a Number", callback);
