@@ -524,7 +524,6 @@
         'core/fpdftext/include/cpdf_linkextract.h',
         'core/fpdftext/include/cpdf_textpage.h',
         'core/fpdftext/include/cpdf_textpagefind.h',
-        'core/fpdftext/fpdf_text_int.cpp',
         'core/fpdftext/unicodenormalizationdata.cpp',
         'core/fpdftext/unicodenormalizationdata.h',
       ],
