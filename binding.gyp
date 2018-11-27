@@ -8,10 +8,9 @@
       'PNGPREFIX_H',
       'PNG_USE_READ_MACROS',
     ],
-#    'include_dirs': [
-#      '<(DEPTH)/third_party/pdfium',
-#      '<(DEPTH)/third_party/pdfium/third_party/freetype/include',
-#    ],
+    'include_dirs': [
+      'third_party/pdfium',
+    ],
     'conditions': [
       ['OS=="linux"', {
         'conditions': [
