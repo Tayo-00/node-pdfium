@@ -10,6 +10,7 @@
 #include <vector>
 #include <utility>
 #include <sstream>
+#include <climits>
 
 #include "../third_party/pdfium/public/fpdf_dataavail.h"
 #include "../third_party/pdfium/public/fpdf_ext.h"
@@ -108,7 +109,7 @@ int Get_Block(void* param, unsigned long pos, unsigned char* pBuf,
   return 1;
 }
 
-bool Is_Data_Avail(FX_FILEAVAIL* pThis, size_t offset, size_t size) {
+FPDF_BOOL Is_Data_Avail(FX_FILEAVAIL* pThis, size_t offset, size_t size) {
   return true;
 }
 
