@@ -11,12 +11,12 @@
 #include <utility>
 #include <sstream>
 
-#include "../third_party/pdfium/fpdfsdk/include/fpdf_dataavail.h"
-#include "../third_party/pdfium/fpdfsdk/include/fpdf_ext.h"
-#include "../third_party/pdfium/fpdfsdk/include/fpdfformfill.h"
-#include "../third_party/pdfium/fpdfsdk/include/fpdftext.h"
-#include "../third_party/pdfium/fpdfsdk/include/fpdfview.h"
-#include "../third_party/pdfium/core/include/fxcrt/fx_system.h"
+#include "../third_party/pdfium/public/fpdf_dataavail.h"
+#include "../third_party/pdfium/public/fpdf_ext.h"
+#include "../third_party/pdfium/public/fpdf_formfill.h"
+#include "../third_party/pdfium/public/fpdf_text.h"
+#include "../third_party/pdfium/public/fpdfview.h"
+#include "../third_party/pdfium/core/fxcrt/include/fx_system.h"
 
 #include "image_diff_png.hh"
 
