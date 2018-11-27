@@ -533,7 +533,7 @@
       'target_name': 'fxcodec',
       'type': 'static_library',
       'dependencies': [
-        '<(libjpeg_gyp_path):libjpeg',
+        'third_party/third_party.gyp:libjpeg',
         'third_party/third_party.gyp:fx_lcms2',
         'third_party/third_party.gyp:fx_libopenjpeg',
         'third_party/third_party.gyp:fx_zlib',
