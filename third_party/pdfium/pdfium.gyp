@@ -798,7 +798,7 @@
             'core/fxge/agg/fx_agg_driver.cpp',
           ],
           'dependencies': [
-            '<(DEPTH)/skia/skia.gyp:skia',
+            'skia/skia.gyp:skia',
           ],
           'dependencies!': [
             'third_party/third_party.gyp:fx_agg',
@@ -957,8 +957,8 @@
       'target_name': 'pdfium_unittests',
       'type': 'executable',
       'dependencies': [
-        '<(DEPTH)/testing/gtest.gyp:gtest_main',
-        '<(DEPTH)/testing/gtest.gyp:gtest',
+        'testing/gtest.gyp:gtest_main',
+        'testing/gtest.gyp:gtest',
         'pdfium',
         'test_support',
       ],
@@ -1009,8 +1009,8 @@
         }],
         ['pdf_enable_v8==1', {
           'include_dirs': [
-            '<(DEPTH)/v8',
-            '<(DEPTH)/v8/include',
+            'v8',
+            'v8/include',
           ],
           'sources': [
             'fpdfsdk/javascript/public_methods_unittest.cpp',
@@ -1022,8 +1022,8 @@
       'target_name': 'pdfium_embeddertests',
       'type': 'executable',
       'dependencies': [
-        '<(DEPTH)/testing/gmock.gyp:gmock',
-        '<(DEPTH)/testing/gtest.gyp:gtest',
+        'testing/gmock.gyp:gmock',
+        'testing/gtest.gyp:gtest',
         'pdfium',
         'test_support',
       ],
@@ -1060,12 +1060,12 @@
         }],
         ['pdf_enable_v8==1', {
           'include_dirs': [
-            '<(DEPTH)/v8',
-            '<(DEPTH)/v8/include',
+            'v8',
+            'v8/include',
           ],
           'dependencies': [
-            '<(DEPTH)/v8/src/v8.gyp:v8',
-            '<(DEPTH)/v8/src/v8.gyp:v8_libplatform',
+            'v8/src/v8.gyp:v8',
+            'v8/src/v8.gyp:v8_libplatform',
           ],
           'sources': [
             'fpdfsdk/javascript/public_methods_embeddertest.cpp',
@@ -1080,8 +1080,8 @@
       'target_name': 'test_support',
       'type': 'static_library',
       'dependencies': [
-        '<(DEPTH)/testing/gmock.gyp:gmock',
-        '<(DEPTH)/testing/gtest.gyp:gtest',
+        'testing/gmock.gyp:gmock',
+        'testing/gtest.gyp:gtest',
       ],
       'sources': [
         'testing/fx_string_testhelpers.cpp',
@@ -1093,12 +1093,12 @@
       'conditions': [
         ['pdf_enable_v8==1', {
           'include_dirs': [
-            '<(DEPTH)/v8',
-            '<(DEPTH)/v8/include',
+            'v8',
+            'v8/include',
           ],
           'dependencies': [
-            '<(DEPTH)/v8/src/v8.gyp:v8',
-            '<(DEPTH)/v8/src/v8.gyp:v8_libplatform',
+            'v8/src/v8.gyp:v8',
+            'v8/src/v8.gyp:v8_libplatform',
           ],
         }],
       ],
@@ -1114,14 +1114,14 @@
             # This is implicit in GN.
             '<(DEPTH)',
             '.',
-            '<(DEPTH)/v8',
-            '<(DEPTH)/v8/include',
+            'v8',
+            'v8/include',
           ],
           'dependencies': [
-            '<(DEPTH)/v8/src/v8.gyp:v8',
+            'v8/src/v8.gyp:v8',
           ],
           'export_dependent_settings': [
-            '<(DEPTH)/v8/src/v8.gyp:v8',
+            'v8/src/v8.gyp:v8',
           ],
           "sources": [
             'fxjs/fxjs_v8.cpp',
