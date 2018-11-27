@@ -44,7 +44,6 @@
         'gtest/src/gtest-test-part.cc',
         'gtest/src/gtest-typed-test.cc',
         'gtest/src/gtest.cc',
-        'gtest-support.h',
       ],
       'sources!': [
         'gtest/src/gtest-all.cc',  # Not needed by our build.
@@ -142,6 +141,16 @@
           }],
         ],
         'msvs_disabled_warnings': [4800],
+      },
+      'variables': {
+        'clang_warning_flags': [
+          # The Mutex constructor initializer list in gtest-port.cc is
+          # incorrectly ordered. See
+          # https://groups.google.com/d/msg/googletestframework/S5uSV8L2TX8/U1FaTDa6J6sJ.
+          '-Wno-reorder',
+          # Suppress warnings for unused constants.
+          '-Wno-unused'
+        ],
       },
     },
     {
